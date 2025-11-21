@@ -2,7 +2,7 @@ const authServiceURL = "http://localhost:8081/api/auth";
 const projectServiceURL = "http://localhost:8082/api/projects";
 const freelancerServiceURL = "http://localhost:8083/api/freelancers";
 
-export const api = {
+const api = {
   login: async (email, password) => {
     const user = await fetch(authServiceURL + "/login", {
       method: "POST",
