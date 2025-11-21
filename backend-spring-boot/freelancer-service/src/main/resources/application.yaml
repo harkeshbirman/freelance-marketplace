@@ -1,0 +1,32 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: freelancer-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/FreelancerStore?createDatabaseIfNotExist=true
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  output:
+    ansi:
+      enabled: ALWAYS
+
+service:
+  auth:
+    baseURL: http://localhost:8081/api/auth
+  projects:
+    baseURL: http://localhost:8082/api/projects
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics

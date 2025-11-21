@@ -1,0 +1,30 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: auth-service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/UserStore?createDatabaseIfNotExist=true
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  output:
+    ansi:
+      enabled: ALWAYS
+
+jwt:
+  secret: thicrccnstbqjxbotricrcrxbaoesuthrcxeumeulyqtbwqbrirppcrsrlrcercqszwvwxqjeoruar
+  expiration_hrs: 48
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics
