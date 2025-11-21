@@ -143,7 +143,7 @@ const AuthPage = ({ type }) => {
             required
           />
 
-          {role === "FREELANCER" && (
+          {role === "FREELANCER" && type === "register" && (
             <>
               <Input
                 label="Skills (Atleast 3 skills separated by commas)"
@@ -155,29 +155,25 @@ const AuthPage = ({ type }) => {
                 required
               />
 
-              {role === "FREELANCER" && (
-                <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Experience Level
-                  </label>
-                  <select
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    value={formData.experienceLevel}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        experienceLevel: e.target.value,
-                      })
-                    }
-                  >
-                    <option value="BEGINNER">Beginner (0-2 years)</option>
-                    <option value="INTERMEDIATE">
-                      Intermediate (2-5 years)
-                    </option>
-                    <option value="EXPERT">Expert (5+ years)</option>
-                  </select>
-                </div>
-              )}
+              <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Experience Level
+                </label>
+                <select
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  value={formData.experienceLevel}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      experienceLevel: e.target.value,
+                    })
+                  }
+                >
+                  <option value="BEGINNER">Beginner (0-2 years)</option>
+                  <option value="INTERMEDIATE">Intermediate (2-5 years)</option>
+                  <option value="EXPERT">Expert (5+ years)</option>
+                </select>
+              </div>
             </>
           )}
           <Button type="submit" className="w-full" disabled={loading}>
