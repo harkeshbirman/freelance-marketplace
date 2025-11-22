@@ -48,10 +48,18 @@ A microservices-based Freelance Marketplace with a React frontend. Services are 
 
 ## Minimal setup
 
-Requirements: Java 21, Spring Boot 3.5.x, MySQL 9+, Maven, Node 18+ 
-Backend: mvn spring-boot:run (per service) 
+Requirements: Java 21, Spring Boot 3.5.x, MySQL 9+, Maven, Node 20+
+
+Ensure that MySQL database is runnig on 3306 port on your localhost, otherwise change the url.
+
+And, update username and password also in application.yaml file according to your database configurations.
+
+Backend: mvn spring-boot:run (per service)
+
 Frontend:
 
-- cd frontend
+- cd frontend-reactjs
 - npm install
 - npm run dev
+
+Now, the react app should be running at http://localhost:3000.
