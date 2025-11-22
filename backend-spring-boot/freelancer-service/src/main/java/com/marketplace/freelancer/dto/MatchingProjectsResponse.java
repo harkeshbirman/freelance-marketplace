@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Builder
@@ -16,5 +17,6 @@ public class MatchingProjectsResponse {
     private Long freelancerId;
     private String freelancerName;
     private Double matchScore;
+    private BigDecimal bidAmount;
     private List<String> matchingSkills;
 }

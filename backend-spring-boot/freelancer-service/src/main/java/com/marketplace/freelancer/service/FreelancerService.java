@@ -101,6 +101,7 @@ public class FreelancerService {
             projectSkillFreelancer.setProjectId(request.getProjectId());
             projectSkillFreelancer.setFreelancerId(request.getFreelancerId());
             projectSkillFreelancer.setComment(request.getMessage());
+            projectSkillFreelancer.setBidAmount(request.getBidAmount());
 
             projectSkillFreelancerRepository.save(projectSkillFreelancer);
         }
@@ -144,6 +145,7 @@ public class FreelancerService {
                         record.getFreelancerId(),
                         freelancerRepository.findByUserId(record.getFreelancerId()).orElseThrow().getName(),
                         record.getMatchScore(),
+                        record.getBidAmount(),
                         record.getMatchingSkills().stream()
                                 .map(FreelancerSkill::getSkillName)
                                 .toList()

@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.util.Set;
 
 
@@ -35,6 +36,9 @@ public class ProjectSkillFreelancer {
 
     @Column(name = "comment", length = 500)
     private String comment;
+
+    @Column(name = "bid_amount", nullable = false)
+    private BigDecimal bidAmount;
 
     @ManyToMany(cascade = CascadeType.ALL)
     Set<FreelancerSkill> matchingSkills;

@@ -37,13 +37,13 @@ public class JwtFilter extends OncePerRequestFilter {
         if (header != null && header.startsWith("Bearer ")) {
             String token = header.substring(7);
 
-            Map<String, String> stringStringMap = verifyToken(token);
+            Map<String, String> tokenResponse = verifyToken(token);
 
-            if (stringStringMap != null && stringStringMap.containsKey("userId")
-                    && stringStringMap.containsKey("role")) {
+            if (tokenResponse != null && tokenResponse.containsKey("userId")
+                    && tokenResponse.containsKey("role")) {
 
-                Long userId = Long.parseLong(stringStringMap.get("userId"));
-                String role = stringStringMap.get("role");
+                Long userId = Long.parseLong(tokenResponse.get("userId"));
+                String role = tokenResponse.get("role");
 
                 AuthPrincipal authPrincipal = AuthPrincipal.builder()
                         .userId(userId)

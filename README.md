@@ -48,8 +48,8 @@ A microservices-based Freelance Marketplace with a React frontend. Services are 
 
 ## Minimal setup
 
-Requirements: Java 21, Spring Boot 3.5.x, MySQL 9+, Maven, Node 18+  
-Backend: mvn spring-boot:run (per service)  
+Requirements: Java 21, Spring Boot 3.5.x, MySQL 9+, Maven, Node 18+ 
+Backend: mvn spring-boot:run (per service) 
 Frontend:
 
 - cd frontend

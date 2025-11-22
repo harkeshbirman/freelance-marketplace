@@ -131,16 +131,13 @@ const api = {
   getMatches: async (projectId) => {
     const token = localStorage.getItem("token");
 
-    const matches = await fetch(
-      `${freelancerServiceURL}/${projectId}/matching-projects`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    ).then((res) => {
+    const matches = await fetch(`${projectServiceURL}/${projectId}/matches`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    }).then((res) => {
       if (!res.ok) throw new Error("Failed to fetch matches");
       return res.json();
     });

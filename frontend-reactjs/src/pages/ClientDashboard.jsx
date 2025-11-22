@@ -30,12 +30,12 @@ const ClientDashboard = () => {
 
   useEffect(() => {
     if (!user?.id) return;
-
+    console.log("Fetching projects for user:", user.id);
     (async () => {
       const all = await api.getProjects();
       setProjects(filterProjects(all));
     })();
-  });
+  }, [user?.id]);
 
   const handleCreate = async (e) => {
     e.preventDefault();
@@ -159,7 +159,7 @@ const ClientDashboard = () => {
                 </div>
               </div>
               <div className="text-right">
-                <p className="font-bold text-green-600 text-lg">${p.budget}</p>
+                <p className="font-bold text-green-600 text-lg">₹{p.budget}</p>
                 <Button
                   variant="outline"
                   className="mt-2 text-sm"
@@ -197,6 +197,14 @@ const ClientDashboard = () => {
                     {(match.matchScore * 100).toFixed(0)}% Match
                   </div>
                 </div>
+
+                {match.bidAmount !== undefined && (
+                  <p className="text-sm text-gray-700 mb-2">
+                    Bid:{" "}
+                    <span className="font-semibold">₹{match.bidAmount}</span>
+                  </p>
+                )}
+
                 <p className="text-gray-500 text-sm mb-4">Matched Skills:</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {match.matchingSkills.map((s) => (
